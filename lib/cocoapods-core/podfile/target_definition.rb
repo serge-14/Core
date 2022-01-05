@@ -416,6 +416,14 @@ module Pod
         end
       end
 
+      def do_not_link_pods
+        get_hash_value('do_not_link_pods', false)
+      end
+
+      def set_do_not_link_pods(option = true)
+        set_hash_value('do_not_link_pods', option)
+      end
+
       #--------------------------------------#
 
       # Sets the Swift version that the target definition should use.
@@ -824,6 +832,7 @@ module Pod
         inheritance
         abstract
         swift_version
+        do_not_link_pods
       ).freeze
 
       # @return [Hash] The hash representation of the target definition.

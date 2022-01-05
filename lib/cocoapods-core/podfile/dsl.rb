@@ -745,6 +745,27 @@ module Pod
         current_target_definition.use_frameworks!(option)
       end
 
+      # Enables only framework embedding without linking pods.
+      #
+      # ------
+      #
+      # This attribute is inherited by child target definitions.
+      #
+      # @param [Boolean, Hash] option
+      #        The option to use for configuring packaging and linkage style.
+      #
+      # @example
+      #
+      #   target 'MyApp' do
+      #     do_not_link_pods!
+      #   end
+      #
+      # @return   [void]
+      #
+      def do_not_link_pods!(option = true)
+        current_target_definition.set_do_not_link_pods(true)
+      end
+
       # Specifies the Swift version requirements this target definition supports.
       #
       # **Note** These requirements are inherited from the parent, if specified and if none
